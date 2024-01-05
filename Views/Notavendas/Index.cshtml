@@ -1,0 +1,53 @@
+@model IEnumerable<sara_paz.Models.Notavenda>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pagamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pagamento.idpag)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item.iditem)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.cod_nota">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.cod_nota">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.cod_nota">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

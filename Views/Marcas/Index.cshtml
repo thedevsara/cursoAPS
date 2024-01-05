@@ -1,0 +1,47 @@
+@model IEnumerable<sara_paz.Models.Marca>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.none)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.none)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produto.idprod)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.idmar">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.idmar">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.idmar">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
